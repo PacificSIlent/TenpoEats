@@ -22,7 +22,9 @@
       "title": "Agregar dirección de entrega"
     },
     "restaurants": {
-      "title": "RESTAURANTES"
+      "title": "RESTAURANTES",
+      "dcto": "DCTO",
+      "min": "min."
     },
     "categories": {
       "title": "CATEGORÍAS"

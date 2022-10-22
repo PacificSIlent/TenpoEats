@@ -1,13 +1,14 @@
-import { colorBlack, colorGray, colorGreenLight, colorShadow, colorWhite } from 'assets/colors';
+import { colorGray, colorGreenLight, colorShadow, colorWhite } from 'assets/colors';
 import { globalStyles } from 'assets/styles';
-import { bold, fontXl } from 'assets/tokens';
-import { ScrollView, Text } from 'components';
+import { ScrollView } from 'components';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Dimensions, SafeAreaView, StyleSheet, View } from 'react-native';
-import { Address, Header } from './components';
+import { Address, Header, Restaurants } from './components';
 
 const styles = StyleSheet.create({
+  scrollView: {
+    width: '100%',
+  },
   container: {
     flex: 1,
   },
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     backgroundColor: colorGray,
     overflow: 'hidden',
-    height: Dimensions.get('window').height - Dimensions.get('window').height * 0.7,
+    height: Dimensions.get('window').height * 0.3,
     zIndex: 0,
   },
   address: {
@@ -48,19 +49,12 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
     elevation: 3,
   },
-  titleSection: {
-    fontSize: fontXl,
-    fontWeight: bold,
-    color: colorBlack,
-  },
 });
 
 const Home = () => {
-  const { t } = useTranslation();
-
   return (
     <SafeAreaView style={globalStyles.page}>
-      <ScrollView>
+      <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
           <View style={styles.header}>
             <Header />
@@ -72,9 +66,7 @@ const Home = () => {
 
           <View style={styles.homeCnt}>
             <View style={styles.home}>
-              <Text style={styles.titleSection}>{t('home.restaurants.title')}</Text>
-              <Text style={styles.titleSection}>{t('home.categories.title')}</Text>
-              <Text style={styles.titleSection}>{t('home.favorites.title')}</Text>
+              <Restaurants />
             </View>
           </View>
         </View>

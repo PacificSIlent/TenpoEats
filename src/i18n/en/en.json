@@ -22,7 +22,9 @@
       "title": "Add delivery address"
     },
     "restaurants": {
-      "title": "RESTAURANTS"
+      "title": "RESTAURANTS",
+      "dcto": "DCTO",
+      "min": "min."
     },
     "categories": {
       "title": "CATEGORIES"

@@ -18,7 +18,6 @@ const TextCustom = ({
   onPress,
 }: {
   children: React.ReactNode;
-
   style?: StyleProp<TextStyle> | any;
   onPress?: () => void;
 }) => {

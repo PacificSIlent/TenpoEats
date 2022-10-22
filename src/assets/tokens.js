@@ -3,6 +3,8 @@ export const fontXl = 18;
 export const fontL = 16;
 export const fontM = 14;
 export const fontS = 12;
+export const fontXs = 10;
+export const fontXxs = 8;
 
 export const bold = '700';
 export const medium = '500';
