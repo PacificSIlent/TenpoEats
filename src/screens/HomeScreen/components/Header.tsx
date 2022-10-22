@@ -6,7 +6,7 @@ import { RouteStackNavigation } from 'navigation';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { HeaderLogo } from '.';
+import HeaderLogo from './HeaderLogo';
 
 const styles = StyleSheet.create({
   headerCnt: {
