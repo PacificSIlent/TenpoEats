@@ -1,4 +1,4 @@
-import { colorWhite } from 'assets/colors';
+import { colorShadow, colorWhite } from 'assets/colors';
 import { bold, fontM } from 'assets/tokens';
 import { Text } from 'components';
 import { CategoriesImg } from 'helpers';
@@ -13,6 +13,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 15,
     marginRight: 10,
+    shadowColor: colorShadow,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 2,
   },
   title: {
     position: 'absolute',
