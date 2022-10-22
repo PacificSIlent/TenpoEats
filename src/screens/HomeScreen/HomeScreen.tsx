@@ -2,8 +2,8 @@ import { colorGray, colorGreenLight, colorShadow, colorWhite } from 'assets/colo
 import { globalStyles } from 'assets/styles';
 import { ScrollView } from 'components';
 import React from 'react';
-import { Dimensions, SafeAreaView, StyleSheet, View } from 'react-native';
-import { Address, Header, Restaurants } from './components';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { Address, Categories, Header, Restaurants } from './components';
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     backgroundColor: colorGray,
     overflow: 'hidden',
-    height: Dimensions.get('window').height * 0.3,
+    height: 260,
     zIndex: 0,
   },
   address: {
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     backgroundColor: colorGreenLight,
   },
   home: {
+    height: '100%',
     flex: 1,
     flexGrow: 1,
     backgroundColor: colorWhite,
@@ -67,6 +68,7 @@ const Home = () => {
           <View style={styles.homeCnt}>
             <View style={styles.home}>
               <Restaurants />
+              <Categories />
             </View>
           </View>
         </View>

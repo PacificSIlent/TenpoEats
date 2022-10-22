@@ -7,6 +7,7 @@ import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
 const styles = StyleSheet.create({
   section: {
     width: '100%',
+    flex: 1,
   },
   title: {
     fontSize: fontXl,
