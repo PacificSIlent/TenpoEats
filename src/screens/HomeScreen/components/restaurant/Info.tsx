@@ -8,6 +8,8 @@ import { StyleSheet, Text, View } from 'react-native';
 const styles = StyleSheet.create({
   info: {
     marginTop: 5,
+    width: '100%',
+    flex: 1,
   },
   name: {
     fontSize: fontM,
