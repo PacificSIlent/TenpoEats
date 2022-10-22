@@ -1,0 +1,10 @@
+export const colorBlack = '#333333';
+export const colorGreenLight = '#D4F9F5';
+export const colorGreenStrong = '#00BAA4';
+export const colorGreen = '#008F7E';
+export const colorWhite = '#FFFFFF';
+export const colorGray = '#F2F2F2';
+export const colorGrayLight = '#CCCCCC';
+export const colorGrayStrong = '#ADADAD';
+export const colorRedError = '#CB0126FF';
+export const colorShadow = '#000';

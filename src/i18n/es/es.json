@@ -1,0 +1,43 @@
+{
+  "app": {
+    "general": {
+      "atras": "Atrás"
+    },
+    "pages": {
+      "home": {
+        "title": "Home"
+      },
+      "error": {
+        "title": "Error"
+      }
+    }
+  },
+  "home": {
+    "header": {
+      "tenpo": "Tenpo",
+      "eats": "Eats",
+      "subtitle": "DELIVER APP"
+    },
+    "address": {
+      "title": "Agregar dirección de entrega"
+    },
+    "restaurants": {
+      "title": "RESTAURANTES"
+    },
+    "categories": {
+      "title": "CATEGORÍAS"
+    },
+    "favorites": {
+      "title": "TUS FAVORITOS"
+    }
+  },
+  "error": {
+    "title": "Lo sentimos",
+    "description": "Tuvimos problemas cargando los datos. Por favor intenta nuevamente.",
+    "retry": "Reintentar",
+    "back": "Volver"
+  },
+  "errors": {
+    "generic": "Se ha producido un error. Por favor intenta de nuevo"
+  }
+}

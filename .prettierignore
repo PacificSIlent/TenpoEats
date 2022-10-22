@@ -1,0 +1,11 @@
+node_modules
+target
+build
+package-lock.json
+.git
+gradle
+.scannerwork
+ios/
+android/
+coverage/
+vendor/

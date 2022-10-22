@@ -1,0 +1,29 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Gotham Bold.ttf",
+      "sha1": "bab635cee746ddb70565ba574e1aa0f13d9241c1"
+    },
+    {
+      "path": "src/assets/fonts/Gotham Book.ttf",
+      "sha1": "14a1328aaded9fd6b726b225eb155ad0236992ab"
+    },
+    {
+      "path": "src/assets/fonts/Gotham Light.ttf",
+      "sha1": "c9c19d689889d89964b6bc9a65b56e35a5ec1be1"
+    },
+    {
+      "path": "src/assets/fonts/Gotham Medium.ttf",
+      "sha1": "681d073cb8ef95a0af0c2b584c08962a8d476ce1"
+    },
+    {
+      "path": "src/assets/fonts/Gotham Thin.ttf",
+      "sha1": "14774cc8e85e10adbfd9d93d6c2aa4dde2e982b1"
+    },
+    {
+      "path": "src/assets/fonts/Roboto-Black.ttf",
+      "sha1": "9eb4f9d1aaceb455483d15ce81fd6dcb1fbdb062"
+    }
+  ]
+}
