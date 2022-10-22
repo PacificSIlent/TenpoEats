@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     fontSize: fontXl,
     fontWeight: bold,
     color: colorBlack,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   scroll: {
     overflow: 'visible',

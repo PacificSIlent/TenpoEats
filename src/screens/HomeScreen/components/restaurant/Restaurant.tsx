@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
   restaurant: {
     position: 'relative',
     marginRight: 10,
+    marginVertical: 10,
   },
 });
 
