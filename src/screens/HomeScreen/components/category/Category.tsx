@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   category: {
     position: 'relative',
     height: 80,
-    width: 200,
+    width: 170,
     justifyContent: 'center',
     borderRadius: 15,
     marginRight: 10,
