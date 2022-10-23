@@ -5,44 +5,44 @@ import { colorGray } from '../../assets/colors';
 const fontConfig = {
   web: {
     regular: {
-      fontFamily: 'Gotham Book',
+      fontFamily: 'Gotham',
     },
     medium: {
-      fontFamily: 'Gotham Medium',
+      fontFamily: 'Gotham',
     },
     light: {
-      fontFamily: 'Gotham Light',
+      fontFamily: 'Gotham',
     },
     thin: {
-      fontFamily: 'Gotham Book',
+      fontFamily: 'Gotham',
     },
   },
   ios: {
     regular: {
-      fontFamily: 'Gotham Book',
+      fontFamily: 'Gotham',
     },
     medium: {
-      fontFamily: 'Gotham Medium',
+      fontFamily: 'Gotham',
     },
     light: {
-      fontFamily: 'Gotham Light',
+      fontFamily: 'Gotham',
     },
     thin: {
-      fontFamily: 'Gotham Book',
+      fontFamily: 'Gotham',
     },
   },
   android: {
     regular: {
-      fontFamily: 'Gotham Book',
+      fontFamily: 'Gotham',
     },
     medium: {
-      fontFamily: 'Gotham Medium',
+      fontFamily: 'Gotham',
     },
     light: {
-      fontFamily: 'Gotham Light',
+      fontFamily: 'Gotham',
     },
     thin: {
-      fontFamily: 'Gotham Book',
+      fontFamily: 'Gotham',
     },
   },
 };

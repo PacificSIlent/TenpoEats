@@ -1,7 +1,11 @@
+import { useNavigation } from '@react-navigation/native';
 import { colorGray, colorGreenLight, colorShadow, colorWhite } from 'assets/colors';
 import { globalStyles } from 'assets/styles';
 import { ScrollView } from 'components';
+import 'config/ignoreLogs';
+import { RouteStackNavigation } from 'navigation';
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { getDashboardData, useAppDispatch } from 'store';
 import LoadingAdvice from '../../components/LoadingAdvice';
@@ -57,11 +61,33 @@ const styles = StyleSheet.create({
 });
 
 const Home = () => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const isLoading = useIsLoading();
+  const navigation = useNavigation<RouteStackNavigation>();
+
+  const errorAction = () => {
+    navigation.popToTop();
+    getDashboardDataHandler();
+  };
+
+  const getDashboardDataHandler = () => {
+    dispatch(getDashboardData())
+      .unwrap()
+      .catch(() => {
+        navigation.navigate('Error', {
+          data: {
+            title: t('error.title'),
+            description: t('error.description'),
+            buttonText: t('error.retry'),
+            onClick: errorAction,
+          },
+        });
+      });
+  };
 
   useEffect(() => {
-    dispatch(getDashboardData());
+    getDashboardDataHandler();
   }, []);
 
   return (

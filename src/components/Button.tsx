@@ -1,5 +1,5 @@
-import { colorGreenStrong } from 'assets/colors';
-import { fontL } from 'assets/tokens';
+import { colorGreenStrong, colorShadow } from 'assets/colors';
+import { bold, fontL } from 'assets/tokens';
 import React from 'react';
 import { StyleProp, StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import { Button as ButtonPaper } from 'react-native-paper';
@@ -8,13 +8,22 @@ const styles = StyleSheet.create({
   button: {
     width: '100%',
     borderColor: colorGreenStrong,
-    borderWidth: 1,
-    elevation: 0,
+    shadowColor: colorShadow,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+    backgroundColor: colorGreenStrong,
+    borderRadius: 10,
   },
   label: {
     paddingVertical: 10,
     fontSize: fontL,
     letterSpacing: 0,
+    fontWeight: bold,
   },
   disabled: {
     borderWidth: 0,

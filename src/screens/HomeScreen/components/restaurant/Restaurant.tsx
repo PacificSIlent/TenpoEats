@@ -29,7 +29,7 @@ const Restaurant = ({
 }) => {
   return (
     <View style={styles.restaurant}>
-      {discountAmount !== 0 || discountAmount < 100 ? (
+      {discountAmount !== 0 && discountAmount < 100 ? (
         <Discount discountAmount={discountAmount} />
       ) : null}
       <Logo restaurantId={restaurantId} />
