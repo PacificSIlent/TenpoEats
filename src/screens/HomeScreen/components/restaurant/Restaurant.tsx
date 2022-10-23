@@ -29,7 +29,9 @@ const Restaurant = ({
 }) => {
   return (
     <View style={styles.restaurant}>
-      <Discount discountAmount={discountAmount} />
+      {discountAmount !== 0 || discountAmount < 100 ? (
+        <Discount discountAmount={discountAmount} />
+      ) : null}
       <Logo restaurantId={restaurantId} />
       <Info name={name} rate={rate} deliveryMin={deliveryMin} deliveryMax={deliveryMax} />
     </View>

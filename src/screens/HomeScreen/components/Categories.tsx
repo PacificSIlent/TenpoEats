@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store';
 import { Category } from './category';
 import Section from './Section';
 
@@ -13,11 +15,13 @@ const styles = StyleSheet.create({
 const Categories = () => {
   const { t } = useTranslation();
 
+  const categories = useSelector((state: RootState) => state.global.dashboardData.categories);
+
   return (
     <Section style={styles.categories} title={t('home.categories.title')}>
-      <Category name="HAMBURGUESAS" categoryId="cate_001" />
-      <Category name="ITALIANA" categoryId="cate_002" />
-      <Category name="PIZZAS" categoryId="cate_003" />
+      {categories.map((category, key) => (
+        <Category name={category.name} categoryId={category.id} key={key} />
+      ))}
     </Section>
   );
 };

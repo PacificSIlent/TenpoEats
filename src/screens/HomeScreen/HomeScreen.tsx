@@ -3,8 +3,7 @@ import { globalStyles } from 'assets/styles';
 import { ScrollView } from 'components';
 import React, { useEffect } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
-import { useSelector } from 'react-redux';
-import { getDashboardData, RootState, useAppDispatch } from 'store';
+import { getDashboardData, useAppDispatch } from 'store';
 import { Address, Categories, Header, Restaurants } from './components';
 import Favorites from './components/Favorites';
 
@@ -57,14 +56,9 @@ const styles = StyleSheet.create({
 
 const Home = () => {
   const dispatch = useAppDispatch();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const dashboardData = useSelector((state: RootState) => state.global.dashboardData);
 
   useEffect(() => {
-    dispatch(getDashboardData())
-      .unwrap()
-      .catch((error) => console.log('Error Servicio', error));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    dispatch(getDashboardData());
   }, []);
 
   return (

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 import Favorite from './favorites/Favorite';
 import Section from './Section';
 
@@ -13,26 +15,22 @@ const styles = StyleSheet.create({
 const Favorites = () => {
   const { t } = useTranslation();
 
+  const favorites = useSelector((state: RootState) => state.global.dashboardData.favorites);
+
   return (
     <Section style={styles.favorites} title={t('home.favorites.title')}>
-      <Favorite
-        restaurantId="rest_001"
-        favoriteId="fav_001"
-        deliveryMax={50}
-        deliveryMin={10}
-        productName="Combo hamburguesa Bigmac"
-        rate="3.5"
-        restaurantName="Macdonalds"
-      />
-      <Favorite
-        restaurantId="rest_002"
-        favoriteId="fav_002"
-        deliveryMax={50}
-        deliveryMin={10}
-        productName="Pizza Mediana 3 Ingredientes"
-        rate="3.5"
-        restaurantName="MELT pizzas"
-      />
+      {favorites.map((favorite, key) => (
+        <Favorite
+          key={key}
+          restaurantId={favorite.restaurant.id}
+          favoriteId={favorite.id}
+          deliveryMax={favorite.restaurant.delivery.max}
+          deliveryMin={favorite.restaurant.delivery.min}
+          productName={favorite.productName}
+          rate={favorite.restaurant.rate}
+          restaurantName={favorite.restaurant.name}
+        />
+      ))}
     </Section>
   );
 };

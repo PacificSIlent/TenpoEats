@@ -9,12 +9,9 @@ if (window.server) {
 
 window.server = createServer({
   routes() {
-    this.get(
-      '/api/tenpoeats/dev/v1/dashboard',
-      () => {
-        return dashboardData;
-      },
-      { timing: 2000 },
-    );
+    this.timing = 5000;
+    this.get('/api/tenpoeats/dev/v1/dashboard', () => {
+      return dashboardData;
+    });
   },
 });
