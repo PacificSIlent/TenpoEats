@@ -1,14 +1,20 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Restaurant } from './restaurant';
 import Section from './Section';
+
+const styles = StyleSheet.create({
+  restaurants: {
+    marginBottom: 30,
+  },
+});
 
 const Restaurants = () => {
   const { t } = useTranslation();
 
   return (
-    <Section title={t('home.restaurants.title')}>
+    <Section style={styles.restaurants} title={t('home.restaurants.title')}>
       <TouchableOpacity onPress={() => {}}>
         <Restaurant
           discountAmount={50}

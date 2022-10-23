@@ -35,10 +35,10 @@ export const CategoriesImg = [
 export const FavoritesImg = [
   {
     id: 'fav_001',
-    src: require('../assets/images/favorites/fav_001.png'),
+    src: require('../assets/images/favorites/fav_001.jpeg'),
   },
   {
     id: 'fav_002',
-    src: require('../assets/images/favorites/fav_002.png'),
+    src: require('../assets/images/favorites/fav_002.jpeg'),
   },
 ];

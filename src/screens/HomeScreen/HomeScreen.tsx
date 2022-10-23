@@ -4,6 +4,7 @@ import { ScrollView } from 'components';
 import React from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { Address, Categories, Header, Restaurants } from './components';
+import Favorites from './components/Favorites';
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -69,6 +70,7 @@ const Home = () => {
             <View style={styles.home}>
               <Restaurants />
               <Categories />
+              <Favorites />
             </View>
           </View>
         </View>

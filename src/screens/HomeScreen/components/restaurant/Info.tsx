@@ -1,6 +1,6 @@
 import { colorBlack } from 'assets/colors';
-import { StarRate } from 'assets/images';
 import { book, fontM, fontS, medium } from 'assets/tokens';
+import { Rate } from 'components';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     color: colorBlack,
     fontWeight: book,
     marginLeft: 4,
-    marginTop: 2,
   },
 });
 
@@ -46,10 +45,7 @@ const RestaurantInfo = ({
     <View style={styles.info}>
       <Text style={styles.name}>{name}</Text>
       <View style={styles.infoCnt}>
-        <View style={styles.infoCnt}>
-          <StarRate />
-          <Text style={[styles.infoText]}>{rate}</Text>
-        </View>
+        <Rate rate={rate} />
         <Text style={styles.infoText}>{`${deliveryMin}-${deliveryMax} ${t(
           'home.restaurants.min',
         )}`}</Text>

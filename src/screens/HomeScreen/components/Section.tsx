@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
   section: {
     width: '100%',
     flex: 1,
+    flexGrow: 0,
   },
   title: {
     fontSize: fontXl,
