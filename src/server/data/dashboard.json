@@ -1,0 +1,106 @@
+{
+  "restaurants": [
+    {
+      "name": "Macdonalds",
+      "rate": "3.5",
+      "id": "rest_001",
+      "delivery": {
+        "min": 10,
+        "max": 50
+      },
+      "discount": 50,
+      "category": "Comida Rápida",
+      "subcategory": "Snacks",
+      "detail": "descripción"
+    },
+    {
+      "name": "MELT pizzas",
+      "rate": "4.5",
+      "id": "rest_002",
+      "delivery": {
+        "min": 10,
+        "max": 60
+      },
+      "discount": 30,
+      "category": "Comida Rápida",
+      "subcategory": "Snacks",
+      "detail": "descripción"
+    },
+    {
+      "name": "YOKONO",
+      "rate": "3.5",
+      "id": "rest_003",
+      "delivery": {
+        "min": 10,
+        "max": 50
+      },
+      "discount": 20,
+      "category": "Comida Rápida",
+      "subcategory": "Snacks",
+      "detail": "descripción"
+    },
+    {
+      "name": "Lasagna Pizza",
+      "rate": "3.5",
+      "id": "rest_004",
+      "delivery": {
+        "min": 10,
+        "max": 50
+      },
+      "discount": 10,
+      "category": "Comida Rápida",
+      "subcategory": "Snacks",
+      "detail": "descripción"
+    }
+  ],
+  "categories": [
+    {
+      "name": "HAMBURGUESAS",
+      "id": "cate_001"
+    },
+    {
+      "name": "ITALIANA",
+      "id": "cate_002"
+    },
+    {
+      "name": "PIZZAS",
+      "id": "cate_003"
+    }
+  ],
+  "favorites": [
+    {
+      "id": "fav_001",
+      "productName": "Combo hamburguesa Bigmac",
+      "restaurant": {
+        "name": "Macdonalds",
+        "rate": "3.5",
+        "id": "rest_001",
+        "delivery": {
+          "min": 10,
+          "max": 50
+        },
+        "discount": 50,
+        "category": "Comida Rápida",
+        "subcategory": "Snacks",
+        "detail": "descripción"
+      }
+    },
+    {
+      "id": "fav_002",
+      "productName": "Pizza Mediana 3 Ingredientes",
+      "restaurant": {
+        "name": "MELT pizzas",
+        "rate": "4.5",
+        "id": "rest_002",
+        "delivery": {
+          "min": 10,
+          "max": 60
+        },
+        "discount": 30,
+        "category": "Comida Rápida",
+        "subcategory": "Snacks",
+        "detail": "descripción"
+      }
+    }
+  ]
+}

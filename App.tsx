@@ -6,6 +6,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 import { navigationTheme, paperTheme } from './src/assets/styles';
 import { store } from './src/store';
+require('./src/server');
 
 const App: () => JSX.Element = () => {
   return (
