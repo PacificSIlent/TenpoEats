@@ -41,5 +41,9 @@
   },
   "errors": {
     "generic": "An error has occurred. Please try again"
+  },
+  "loadingAdvice": {
+    "title": "Loading information",
+    "subtitle": "We are loading the information, please wait."
   }
 }

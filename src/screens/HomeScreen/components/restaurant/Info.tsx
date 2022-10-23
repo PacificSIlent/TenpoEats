@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const RestaurantInfo = ({
+const Info = ({
   name,
   rate,
   deliveryMin,
@@ -54,4 +54,4 @@ const RestaurantInfo = ({
   );
 };
 
-export default RestaurantInfo;
+export default Info;

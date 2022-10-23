@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Restaurant = ({ categoryId, name }: { categoryId: string; name: string }) => {
+const Category = ({ categoryId, name }: { categoryId: string; name: string }) => {
   return (
     <View style={styles.category}>
       <Image
@@ -50,4 +50,4 @@ const Restaurant = ({ categoryId, name }: { categoryId: string; name: string }) 
   );
 };
 
-export default Restaurant;
+export default Category;

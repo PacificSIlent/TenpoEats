@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Favorite = ({ rate }: { rate: string }) => {
+const Rate = ({ rate }: { rate: string }) => {
   return (
     <View style={styles.info}>
       <StarRate />
@@ -28,4 +28,4 @@ const Favorite = ({ rate }: { rate: string }) => {
   );
 };
 
-export default Favorite;
+export default Rate;

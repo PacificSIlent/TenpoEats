@@ -4,6 +4,8 @@ import { ScrollView } from 'components';
 import React, { useEffect } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { getDashboardData, useAppDispatch } from 'store';
+import LoadingAdvice from '../../components/LoadingAdvice';
+import { useIsLoading } from '../../hooks/useIsLoading';
 import { Address, Categories, Header, Restaurants } from './components';
 import Favorites from './components/Favorites';
 
@@ -56,6 +58,7 @@ const styles = StyleSheet.create({
 
 const Home = () => {
   const dispatch = useAppDispatch();
+  const isLoading = useIsLoading();
 
   useEffect(() => {
     dispatch(getDashboardData());
@@ -75,9 +78,15 @@ const Home = () => {
 
           <View style={styles.homeCnt}>
             <View style={styles.home}>
-              <Restaurants />
-              <Categories />
-              <Favorites />
+              {!isLoading ? (
+                <>
+                  <Restaurants />
+                  <Categories />
+                  <Favorites />
+                </>
+              ) : (
+                <LoadingAdvice />
+              )}
             </View>
           </View>
         </View>

@@ -41,5 +41,9 @@
   },
   "errors": {
     "generic": "Se ha producido un error. Por favor intenta de nuevo"
+  },
+  "loadingAdvice": {
+    "title": "Cargando información",
+    "subtitle": "Estamos cargando la información, por favor espere."
   }
 }
