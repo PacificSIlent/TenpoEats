@@ -1,7 +1,7 @@
 {
   "restaurants": [
     {
-      "name": "Macdonalds",
+      "name": "Mcdonalds",
       "rate": "3.5",
       "id": "rest_001",
       "delivery": {
@@ -72,7 +72,7 @@
       "id": "fav_001",
       "productName": "Combo hamburguesa Bigmac",
       "restaurant": {
-        "name": "Macdonalds",
+        "name": "Mcdonalds",
         "rate": "3.5",
         "id": "rest_001",
         "delivery": {

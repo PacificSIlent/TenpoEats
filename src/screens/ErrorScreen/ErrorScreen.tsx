@@ -5,7 +5,7 @@ import { bold, fontL, fontS, light } from 'assets/tokens';
 import { Button, Text } from 'components';
 import { ErrorData } from 'models';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { BackHandler, StyleSheet, View } from 'react-native';
 
 const styles = StyleSheet.create({
   page: {
@@ -44,8 +44,10 @@ const ErrorScreen = () => {
   });
 
   useEffect(() => {
+    const backHandler = BackHandler.addEventListener('hardwareBackPress', () => true);
     const { params } = route as { params: { data: ErrorData } };
     setDataError(params.data);
+    return () => backHandler.remove();
   }, []);
 
   const onPress = () => {

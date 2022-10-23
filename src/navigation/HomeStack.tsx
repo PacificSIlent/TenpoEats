@@ -38,6 +38,7 @@ const HomeStack = () => {
         component={ErrorScreen}
         options={{
           headerShown: false,
+          gestureEnabled: false,
         }}
       />
     </Stack.Navigator>
