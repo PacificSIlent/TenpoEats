@@ -20,6 +20,7 @@ const ScrollView = ({
   testID,
   horizontal,
   showsHorizontalScrollIndicator,
+  refreshControl,
 }: {
   children: React.ReactNode;
   style?: StyleProp<ViewStyle>;
@@ -27,6 +28,7 @@ const ScrollView = ({
   testID?: string;
   horizontal?: boolean;
   showsHorizontalScrollIndicator?: boolean;
+  refreshControl?: React.ReactElement;
 }) => (
   <NativeScrollView
     style={[styles.scrollView, style]}
@@ -36,6 +38,7 @@ const ScrollView = ({
     horizontal={horizontal}
     scrollEnabled
     showsHorizontalScrollIndicator={showsHorizontalScrollIndicator}
+    refreshControl={refreshControl}
   >
     {children}
   </NativeScrollView>
@@ -47,6 +50,7 @@ ScrollView.defaultProps = {
   testID: '',
   horizontal: false,
   showsHorizontalScrollIndicator: true,
+  refreshControl: undefined,
 };
 
 export default ScrollView;

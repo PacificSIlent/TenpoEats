@@ -1,12 +1,19 @@
 import { useNavigation } from '@react-navigation/native';
-import { colorGray, colorGreenLight, colorShadow, colorWhite } from 'assets/colors';
+import {
+  colorGray,
+  colorGreenLight,
+  colorGreenStrong,
+  colorShadow,
+  colorWhite,
+} from 'assets/colors';
 import { globalStyles } from 'assets/styles';
 import { ScrollView } from 'components';
 import 'config/ignoreLogs';
+import { wait } from 'helpers';
 import { RouteStackNavigation } from 'navigation';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { RefreshControl, SafeAreaView, StyleSheet, View } from 'react-native';
 import { getDashboardData, useAppDispatch } from 'store';
 import LoadingAdvice from '../../components/LoadingAdvice';
 import { useIsLoading } from '../../hooks/useIsLoading';
@@ -65,6 +72,7 @@ const Home = () => {
   const dispatch = useAppDispatch();
   const isLoading = useIsLoading();
   const navigation = useNavigation<RouteStackNavigation>();
+  const [refreshing, setRefreshing] = React.useState(false);
 
   const errorAction = () => {
     navigation.popToTop();
@@ -86,13 +94,29 @@ const Home = () => {
       });
   };
 
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    getDashboardDataHandler();
+    wait(1000).then(() => setRefreshing(false));
+  }, []);
+
   useEffect(() => {
     getDashboardDataHandler();
   }, []);
 
   return (
     <SafeAreaView style={globalStyles.page}>
-      <ScrollView style={styles.scrollView}>
+      <ScrollView
+        style={styles.scrollView}
+        refreshControl={
+          <RefreshControl
+            colors={[colorGreenStrong]}
+            tintColor={colorGreenStrong}
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
+        }
+      >
         <View style={styles.container}>
           <View style={styles.header}>
             <Header />

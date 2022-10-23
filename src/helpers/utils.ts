@@ -19,3 +19,6 @@ export const errorMessage = (error: any) => {
   }
   return newError;
 };
+
+export const wait = (timeout: number) =>
+  new Promise((resolve: any) => setTimeout(resolve, timeout));
