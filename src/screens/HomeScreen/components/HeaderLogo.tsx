@@ -1,6 +1,7 @@
 import { Mano, Moto, Star } from 'assets/images';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { Dimensions, StyleSheet, View } from 'react-native';
+import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 
 const styles = StyleSheet.create({
   headerLogo: {
@@ -15,12 +16,13 @@ const styles = StyleSheet.create({
     zIndex: 1,
     transform: [{ scale: 1.1 }],
   },
-  moto: {
+  motoCnt: {
     position: 'absolute',
     bottom: '16%',
-    right: '37%',
-    transform: [{ scale: 1.4 }],
     zIndex: 0,
+  },
+  moto: {
+    transform: [{ scale: 1.4 }],
   },
   firstStar: {
     position: 'absolute',
@@ -48,7 +50,25 @@ const styles = StyleSheet.create({
   },
 });
 
+const width = Dimensions.get('window').width;
+
 const HeaderLogo = () => {
+  const animation = useSharedValue({ right: width * 0.23 });
+
+  const animationStyle = useAnimatedStyle(() => {
+    return {
+      right: withTiming(animation.value.right, {
+        duration: 500,
+      }),
+    };
+  });
+
+  useEffect(() => {
+    setTimeout(() => {
+      animation.value = { right: width - width * 0.63 };
+    }, 300);
+  }, []);
+
   return (
     <View style={styles.headerLogo}>
       <Star style={styles.firstStar} />
@@ -56,7 +76,9 @@ const HeaderLogo = () => {
       <Star style={styles.thirdStar} />
       <Star style={styles.fourStar} />
       <Mano style={styles.mano} />
-      <Moto style={styles.moto} />
+      <Animated.View style={[styles.motoCnt, animationStyle]}>
+        <Moto style={styles.moto} />
+      </Animated.View>
     </View>
   );
 };
