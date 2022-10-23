@@ -1,6 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
+import { Loading } from 'components';
 import { HomeStack } from 'navigation';
-import React from 'react';
+import React, { useState } from 'react';
 import { Portal, Provider as PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
@@ -9,6 +10,12 @@ import { store } from './src/store';
 require('./src/server');
 
 const App: () => JSX.Element = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  store.subscribe(() => {
+    setIsLoading(store.getState().global.loading);
+  });
+
   return (
     <SafeAreaProvider>
       <Portal.Host>
@@ -16,6 +23,7 @@ const App: () => JSX.Element = () => {
           <Provider store={store}>
             <NavigationContainer theme={navigationTheme}>
               <HomeStack />
+              {isLoading ? <Loading /> : null}
             </NavigationContainer>
           </Provider>
         </PaperProvider>
