@@ -11,6 +11,7 @@ import Logo from 'screens/HomeScreen/components/restaurant/Logo';
 const styles = StyleSheet.create({
   page: {
     backgroundColor: colorGreenLight,
+    paddingTop: 10,
   },
   container: {
     width: '100%',

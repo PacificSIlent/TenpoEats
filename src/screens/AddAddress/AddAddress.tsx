@@ -7,6 +7,7 @@ import { StyleSheet, View } from 'react-native';
 const styles = StyleSheet.create({
   page: {
     backgroundColor: colorGreenLight,
+    paddingTop: 10,
   },
   container: {
     position: 'relative',
