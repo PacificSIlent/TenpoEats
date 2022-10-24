@@ -8,7 +8,7 @@ import Section from './Section';
 
 const styles = StyleSheet.create({
   categories: {
-    marginBottom: 40,
+    marginBottom: 30,
   },
 });
 

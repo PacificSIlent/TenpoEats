@@ -21,6 +21,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 1.41,
     elevation: 2,
+    backgroundColor: colorWhite,
+    marginBottom: 10,
   },
   title: {
     position: 'absolute',
