@@ -11,10 +11,12 @@ import { useTranslation } from 'react-i18next';
 import { ErrorScreen } from 'screens/ErrorScreen';
 import { HomeScreen } from 'screens/HomeScreen';
 import { RestaurantDetail } from 'screens/RestaurantDetail';
+import { setHomeFocused, useAppDispatch } from 'store';
 
 const HomeStack = () => {
   const { t } = useTranslation();
   const Stack = createNativeStackNavigator<RouteParamList>();
+  const dispatch = useAppDispatch();
 
   return (
     <Stack.Navigator
@@ -37,7 +39,23 @@ const HomeStack = () => {
         headerBackTitle: t('app.general.atras'),
       }}
     >
-      <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+        listeners={{
+          blur: () => {
+            // Utilizado para el flujo de reiniciar animación del header
+            setTimeout(() => {
+              dispatch(setHomeFocused(false));
+            }, 300);
+          },
+          focus: () => {
+            // Utilizado para el flujo de reiniciar animación del header
+            dispatch(setHomeFocused(true));
+          },
+        }}
+      />
       <Stack.Screen
         name="RestaurantDetail"
         component={RestaurantDetail}

@@ -4,11 +4,13 @@ import { DashboardService } from 'services';
 
 export interface GlobalState {
   loading: boolean;
+  homeFocused: boolean;
   dashboardData: Dashboard;
 }
 
 const initialState: GlobalState = {
   loading: false,
+  homeFocused: true,
   dashboardData: {
     restaurants: [],
     categories: [],
@@ -32,7 +34,12 @@ export const getDashboardData = createAsyncThunk(
 export const globalSlice = createSlice({
   name: 'global',
   initialState,
-  reducers: {},
+  reducers: {
+    // Utilizado para el flujo de reiniciar animación del header
+    setHomeFocused: (state, action) => {
+      state.homeFocused = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getDashboardData.pending, (state) => {
       state.loading = true;
@@ -48,5 +55,7 @@ export const globalSlice = createSlice({
     });
   },
 });
+
+export const { setHomeFocused } = globalSlice.actions;
 
 export default globalSlice.reducer;

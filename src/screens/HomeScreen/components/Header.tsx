@@ -6,6 +6,8 @@ import { RouteStackNavigation } from 'navigation';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 import HeaderLogo from './HeaderLogo';
 
 const styles = StyleSheet.create({
@@ -64,7 +66,8 @@ const userImage = require('assets/images/user.png');
 
 const Header = () => {
   const { t } = useTranslation();
-
+  // Utilizado para el flujo de reiniciar animación del header
+  const homeFocused = useSelector((state: RootState) => state.global.homeFocused);
   const navigation = useNavigation<RouteStackNavigation>();
 
   const goToSelectAddress = () => {
@@ -87,9 +90,11 @@ const Header = () => {
         <Text style={[styles.title, styles.title2]}>{t('home.header.eats')}</Text>
         <Text style={styles.subtitle}>{t('home.header.subtitle')}</Text>
       </View>
-      <View style={styles.logoCnt}>
-        <HeaderLogo />
-      </View>
+      {homeFocused ? (
+        <View style={styles.logoCnt}>
+          <HeaderLogo />
+        </View>
+      ) : null}
     </>
   );
 };
