@@ -4,6 +4,7 @@ import { Search } from 'assets/images';
 import { RouteParamList } from 'navigation';
 import React from 'react';
 import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Address } from 'screens/HomeScreen/components';
 import BackButton from './BackButton';
 
 const styles = StyleSheet.create({
@@ -30,6 +31,7 @@ const Header = ({ navigation }: { navigation: NativeStackNavigationProp<RoutePar
   return (
     <View style={styles.container}>
       <BackButton navigationFunction={goBack} />
+      <Address />
       <View style={styles.actions}>
         <TouchableOpacity onPress={() => {}}>
           <View style={styles.actionsitem}>

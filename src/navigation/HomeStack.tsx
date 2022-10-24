@@ -4,7 +4,7 @@ import {
 } from '@react-navigation/native-stack';
 import { colorGreen, colorGreenLight } from 'assets/colors';
 import { bold, fontL } from 'assets/tokens';
-import { Header } from 'components';
+import Header from 'components/Header';
 import { RouteParamList } from 'navigation';
 import React from 'react';
 import { useTranslation } from 'react-i18next';

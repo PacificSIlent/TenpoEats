@@ -11,7 +11,7 @@
       "discount": 50,
       "category": "Comida Rápida",
       "subcategory": "Snacks",
-      "detail": "descripción"
+      "detail": "Detalle de restaurante"
     },
     {
       "name": "MELT pizzas",
@@ -24,7 +24,7 @@
       "discount": 30,
       "category": "Comida Rápida",
       "subcategory": "Snacks",
-      "detail": "descripción"
+      "detail": "Detalle de restaurante"
     },
     {
       "name": "YOKONO",
@@ -37,7 +37,7 @@
       "discount": 20,
       "category": "Comida Rápida",
       "subcategory": "Snacks",
-      "detail": "descripción"
+      "detail": "Detalle de restaurante"
     },
     {
       "name": "Lasagna Pizza",
@@ -50,7 +50,7 @@
       "discount": 10,
       "category": "Comida Rápida",
       "subcategory": "Snacks",
-      "detail": "descripción"
+      "detail": "Detalle de restaurante"
     }
   ],
   "categories": [
@@ -82,7 +82,7 @@
         "discount": 50,
         "category": "Comida Rápida",
         "subcategory": "Snacks",
-        "detail": "descripción"
+        "detail": "Detalle de restaurante"
       }
     },
     {
@@ -99,7 +99,7 @@
         "discount": 30,
         "category": "Comida Rápida",
         "subcategory": "Snacks",
-        "detail": "descripción"
+        "detail": "Detalle de restaurante"
       }
     }
   ]
