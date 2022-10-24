@@ -33,6 +33,9 @@
       "title": "YOUR FAVORITES"
     }
   },
+  "addAddress": {
+    "title": "Add delivery address"
+  },
   "error": {
     "title": "We're sorry",
     "description": "We had problems loading the data. Please try again.",

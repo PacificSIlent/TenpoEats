@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 30,
   },
-  button: {},
 });
 
 const ErrorScreen = () => {
@@ -64,7 +63,6 @@ const ErrorScreen = () => {
           accessibilityLabel={dataError.buttonText}
           onPress={onPress}
           testID="btn-error"
-          style={styles.button}
         >
           {dataError.buttonText}
         </Button>

@@ -71,7 +71,7 @@ const Header = () => {
   const navigation = useNavigation<RouteStackNavigation>();
 
   const goToSelectAddress = () => {
-    navigation.navigate('Home');
+    navigation.navigate('AddAddress');
   };
 
   return (

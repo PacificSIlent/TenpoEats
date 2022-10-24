@@ -33,6 +33,9 @@
       "title": "TUS FAVORITOS"
     }
   },
+  "addAddress": {
+    "title": "Agregar dirección de entrega"
+  },
   "error": {
     "title": "Lo sentimos",
     "description": "Tuvimos problemas cargando los datos. Por favor intenta nuevamente.",
