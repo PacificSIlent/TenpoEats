@@ -8,6 +8,7 @@ import Header from 'components/Header';
 import { RouteParamList } from 'navigation';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Platform } from 'react-native';
 import { ErrorScreen } from 'screens/ErrorScreen';
 import { HomeScreen } from 'screens/HomeScreen';
 import { RestaurantDetail } from 'screens/RestaurantDetail';
@@ -35,7 +36,7 @@ const HomeStack = () => {
         contentStyle: {
           flex: 1,
         },
-        statusBarStyle: 'dark',
+        statusBarStyle: Platform.OS === 'ios' ? 'dark' : 'light',
         headerBackTitle: t('app.general.atras'),
       }}
     >
