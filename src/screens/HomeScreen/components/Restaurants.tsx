@@ -1,3 +1,6 @@
+import { useNavigation } from '@react-navigation/native';
+import { Restaurant as RestaurantModel } from 'models';
+import { RouteStackNavigation } from 'navigation';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, TouchableOpacity } from 'react-native';
@@ -14,13 +17,18 @@ const styles = StyleSheet.create({
 
 const Restaurants = () => {
   const { t } = useTranslation();
+  const navigation = useNavigation<RouteStackNavigation>();
 
   const restaurants = useSelector((state: RootState) => state.global.dashboardData.restaurants);
+
+  const goToDetails = (restaurant: RestaurantModel) => {
+    navigation.navigate('RestaurantDetail', { data: restaurant });
+  };
 
   return (
     <Section style={styles.restaurants} title={t('home.restaurants.title')}>
       {restaurants.map((restaurant, key) => (
-        <TouchableOpacity onPress={() => {}} key={key}>
+        <TouchableOpacity onPress={() => goToDetails(restaurant)} key={key}>
           <Restaurant
             discountAmount={restaurant.discount}
             restaurantId={restaurant.id}

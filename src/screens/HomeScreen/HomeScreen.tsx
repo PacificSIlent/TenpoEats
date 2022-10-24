@@ -13,7 +13,8 @@ import { wait } from 'helpers';
 import { RouteStackNavigation } from 'navigation';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RefreshControl, SafeAreaView, StyleSheet, View } from 'react-native';
+import { RefreshControl, StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
 import { getDashboardData, RootState, useAppDispatch } from 'store';
 import LoadingAdvice from '../../components/LoadingAdvice';
@@ -112,7 +113,7 @@ const Home = () => {
   }, []);
 
   return (
-    <SafeAreaView style={globalStyles.page}>
+    <SafeAreaView style={globalStyles.page} edges={['top']}>
       <ScrollView
         style={styles.scrollView}
         refreshControl={
