@@ -1,9 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { Loading } from 'components';
 import { HomeStack } from 'navigation';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Portal, Provider as PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import SplashScreen from 'react-native-splash-screen';
 import { Provider } from 'react-redux';
 import { navigationTheme, paperTheme } from './src/assets/styles';
 import { store } from './src/store';
@@ -15,6 +16,10 @@ const App: () => JSX.Element = () => {
   store.subscribe(() => {
     setIsLoading(store.getState().global.loading);
   });
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
 
   return (
     <SafeAreaProvider>
