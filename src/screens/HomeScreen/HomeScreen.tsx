@@ -14,7 +14,8 @@ import { RouteStackNavigation } from 'navigation';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RefreshControl, SafeAreaView, StyleSheet, View } from 'react-native';
-import { getDashboardData, useAppDispatch } from 'store';
+import { useSelector } from 'react-redux';
+import { getDashboardData, RootState, useAppDispatch } from 'store';
 import LoadingAdvice from '../../components/LoadingAdvice';
 import { useIsLoading } from '../../hooks/useIsLoading';
 import { Address, Categories, Header, Restaurants } from './components';
@@ -73,6 +74,12 @@ const Home = () => {
   const isLoading = useIsLoading();
   const navigation = useNavigation<RouteStackNavigation>();
   const [refreshing, setRefreshing] = React.useState(false);
+  const dashboardDataExist = useSelector(
+    (state: RootState) =>
+      state.global.dashboardData.restaurants.length > 0 ||
+      state.global.dashboardData.categories.length > 0 ||
+      state.global.dashboardData.favorites.length > 0,
+  );
 
   const errorAction = () => {
     navigation.popToTop();
@@ -128,7 +135,7 @@ const Home = () => {
 
           <View style={styles.homeCnt}>
             <View style={styles.home}>
-              {!isLoading ? (
+              {!isLoading && dashboardDataExist ? (
                 <>
                   <Restaurants />
                   <Categories />
