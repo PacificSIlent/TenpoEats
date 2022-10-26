@@ -1,4 +1,10 @@
-import { colorBlack, colorGrayStrong, colorShadow, colorWhite } from 'assets/colors';
+import {
+  colorBlack,
+  colorGrayLight,
+  colorGrayStrong,
+  colorShadow,
+  colorWhite,
+} from 'assets/colors';
 import { book, fontL, fontM, fontS } from 'assets/tokens';
 import { Text } from 'components';
 import { GOOGLE_API_KEY } from 'config/env.json';
@@ -93,6 +99,7 @@ const SearchAddress = ({
         onFocus,
         onBlur,
         onChangeText,
+        placeholderTextColor: colorGrayLight,
       }}
       placeholder={t('addAddress.placeholder')}
       styles={googlePlacesStyle}

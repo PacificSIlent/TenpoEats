@@ -6,6 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "ios_14": "react-native run-ios --udid 61F87690-A42E-4E87-B6C2-1568C14B23FE",
+    "build_apk": "sh generate_apk.sh",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
