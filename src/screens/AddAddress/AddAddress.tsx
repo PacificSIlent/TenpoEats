@@ -1,9 +1,10 @@
 import { colorGreenLight, colorWhite } from 'assets/colors';
 import { globalStyles } from 'assets/styles';
+import { KeyboardScroll } from 'components';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
-import { SearchAddress } from './components';
+import { FormAddress, SearchAddress } from './components';
 
 const styles = StyleSheet.create({
   page: {
@@ -24,11 +25,15 @@ const styles = StyleSheet.create({
   mapCnt: {
     height: '40%',
     width: '100%',
-    zIndex: -1,
   },
   map: {
     height: '100%',
     width: '100%',
+  },
+  formCnt: {
+    width: '100%',
+    paddingVertical: 30,
+    paddingHorizontal: 16,
   },
 });
 
@@ -87,6 +92,10 @@ const AddAddress = () => {
     setMapVisible(false);
   };
 
+  const onSubmit = (values: any) => {
+    console.log('SUBMIT EVENT', values);
+  };
+
   return (
     <View style={[globalStyles.page, styles.page]}>
       <View style={styles.container}>
@@ -96,16 +105,26 @@ const AddAddress = () => {
           onFocus={onFocus}
           onChangeText={onChangeText}
         />
-        <View style={[styles.mapCnt, { display: mapVisible ? 'flex' : 'none' }]}>
-          <MapView
-            style={styles.map}
-            provider={PROVIDER_GOOGLE}
-            region={coordsMap}
-            maxZoomLevel={18}
-          >
-            {mapVisible ? markers.map((marker) => marker) : null}
-          </MapView>
-        </View>
+        <KeyboardScroll
+          style={{
+            zIndex: -1,
+            display: mapVisible ? 'flex' : 'none',
+          }}
+        >
+          <View style={styles.mapCnt}>
+            <MapView
+              style={styles.map}
+              provider={PROVIDER_GOOGLE}
+              region={coordsMap}
+              maxZoomLevel={18}
+            >
+              {mapVisible ? markers.map((marker) => marker) : null}
+            </MapView>
+          </View>
+          <View style={[styles.formCnt, { display: mapVisible ? 'flex' : 'none' }]}>
+            {mapVisible ? <FormAddress onSubmit={onSubmit} /> : null}
+          </View>
+        </KeyboardScroll>
       </View>
     </View>
   );

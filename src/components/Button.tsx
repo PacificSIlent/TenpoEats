@@ -1,4 +1,4 @@
-import { colorGreenStrong, colorShadow } from 'assets/colors';
+import { colorGrayStrong, colorGreenStrong, colorShadow } from 'assets/colors';
 import { bold, fontL } from 'assets/tokens';
 import React from 'react';
 import { StyleProp, StyleSheet, TextStyle, ViewStyle } from 'react-native';
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     fontWeight: bold,
   },
   disabled: {
+    backgroundColor: colorGrayStrong,
     borderWidth: 0,
   },
   text: {

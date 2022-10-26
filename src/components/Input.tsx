@@ -8,7 +8,6 @@ const inputStyles = StyleSheet.create({
   input: {
     fontSize: fontL,
     color: colorGray,
-    height: 50,
   },
   inputError: {
     marginBottom: 20,
@@ -21,8 +20,6 @@ const inputStyles = StyleSheet.create({
 });
 
 const Input = ({
-  testID,
-  mode,
   label,
   placeholder,
   value,
@@ -32,19 +29,11 @@ const Input = ({
   style,
   touched,
   error,
-  disabled,
-  left,
-  right,
-  secureTextEntry,
   multiline,
-  autoCapitalize,
   keyboardType,
-  autoCorrect,
 }: {
-  testID: string;
-  mode?: 'outlined' | 'flat';
-  label: string;
-  placeholder: string;
+  label?: string;
+  placeholder?: string;
   value: any;
   onChange?: (event: any) => void;
   onBlur?: (event?: any) => void;
@@ -52,10 +41,6 @@ const Input = ({
   style?: StyleProp<ViewStyle>;
   touched?: boolean;
   error?: string;
-  disabled?: boolean;
-  left?: any;
-  right?: any;
-  secureTextEntry?: boolean;
   multiline?: boolean;
   autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
   keyboardType?:
@@ -79,38 +64,26 @@ const Input = ({
   return (
     <>
       <TextInput
-        secureTextEntry={secureTextEntry}
+        mode="outlined"
         theme={{
-          roundness: 4,
-          colors: { background: !disabled ? colorWhite : colorGreenLight },
+          roundness: 20,
+          colors: { background: colorWhite },
         }}
         style={[inputStyles.input, style, hasError ? {} : inputStyles.inputError]}
-        testID={testID}
-        mode={mode}
         label={label}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
         onBlur={onBlur}
         error={hasError}
-        disabled={disabled}
-        left={left}
-        right={right}
         onFocus={onFocus}
         outlineColor={colorGray}
         activeOutlineColor={colorGreenLight}
         multiline={multiline}
-        autoCapitalize={autoCapitalize}
         keyboardType={keyboardType}
-        autoCorrect={autoCorrect}
       />
       {hasError ? (
-        <HelperText
-          style={inputStyles.error}
-          type="error"
-          visible={hasError}
-          testID={`${testID}-error`}
-        >
+        <HelperText style={inputStyles.error} type="error" visible={hasError}>
           {error}
         </HelperText>
       ) : null}
@@ -119,21 +92,16 @@ const Input = ({
 };
 
 Input.defaultProps = {
-  mode: 'outlined',
-  disabled: false,
+  label: undefined,
+  placeholder: undefined,
   style: {},
   touched: false,
   error: null,
-  left: null,
-  right: null,
-  secureTextEntry: false,
   onFocus: () => {},
   onChange: () => {},
   onBlur: () => {},
   multiline: false,
-  autoCapitalize: undefined,
   keyboardType: 'default',
-  autoCorrect: undefined,
 };
 
 export default Input;

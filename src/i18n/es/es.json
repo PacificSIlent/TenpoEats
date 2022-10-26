@@ -35,7 +35,10 @@
   },
   "addAddress": {
     "title": "Agregar dirección de entrega",
-    "placeholder": "Escribe tu dirección"
+    "placeholder": "Escribe tu dirección",
+    "formTitle": "Agregar información de entrega",
+    "formSubtitle": "Depto, Oficina, Piso, Block, etc.",
+    "button": "AGREGAR DIRECCIÓN"
   },
   "error": {
     "title": "Lo sentimos",
@@ -44,6 +47,7 @@
     "back": "Volver"
   },
   "errors": {
+    "max": "El campo debe tener menos de ${max} caracteres",
     "generic": "Se ha producido un error. Por favor intenta de nuevo"
   },
   "loadingAdvice": {

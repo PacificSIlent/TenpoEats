@@ -35,7 +35,10 @@
   },
   "addAddress": {
     "title": "Add delivery address",
-    "placeholder": "Write your address"
+    "placeholder": "Write your address",
+    "formTitle": "Add delivery information",
+    "formSubtitle": "Apartment, Office, Floor, Block, etc.",
+    "button": "ADD ADDRESS"
   },
   "error": {
     "title": "We're sorry",
@@ -44,6 +47,7 @@
     "back": "Go back"
   },
   "errors": {
+    "max": "The field must have less than ${max} characters",
     "generic": "An error has occurred. Please try again"
   },
   "loadingAdvice": {
