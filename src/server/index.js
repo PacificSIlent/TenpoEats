@@ -9,8 +9,10 @@ if (window.server) {
 
 window.server = createServer({
   routes() {
+    this.namespace = '/api/tenpoeats';
+    this.passthrough('https://maps.googleapis.com/maps/**');
     this.timing = 5000;
-    this.get('/api/tenpoeats/dev/v1/dashboard', () => {
+    this.get('/dev/v1/dashboard', () => {
       return dashboardData;
     });
   },

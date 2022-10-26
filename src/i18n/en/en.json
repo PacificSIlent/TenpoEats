@@ -34,7 +34,8 @@
     }
   },
   "addAddress": {
-    "title": "Add delivery address"
+    "title": "Add delivery address",
+    "placeholder": "Write your address"
   },
   "error": {
     "title": "We're sorry",

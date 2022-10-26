@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: Dimensions.get('window').width - 30,
   },
-  titleCnt: { flex: 1, flexDirection: 'row', alignItems: 'center', marginLeft: 20 },
+  titleCnt: { flex: 1, flexDirection: 'row', alignItems: 'center', marginLeft: 10 },
   title: {
     fontSize: fontL,
     fontWeight: light,
