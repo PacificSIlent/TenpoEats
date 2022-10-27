@@ -39,7 +39,7 @@ const Address = () => {
     navigation.navigate('AddAddress');
   };
 
-  return address.address !== '' ? (
+  return !!address && address.address !== '' ? (
     <TouchableOpacity style={[styles.address]} onPress={goToSelectAddress}>
       <PointerMap />
       <View style={styles.addressCnt}>
