@@ -1,11 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { Dashboard } from 'models';
+import { AddressSaved, Dashboard } from 'models';
 import { DashboardService } from 'services';
+import { storeData } from 'storage';
 
 export interface GlobalState {
   loading: boolean;
   homeFocused: boolean;
   dashboardData: Dashboard;
+  addressSaved: AddressSaved;
 }
 
 const initialState: GlobalState = {
@@ -15,6 +17,16 @@ const initialState: GlobalState = {
     restaurants: [],
     categories: [],
     favorites: [],
+  },
+  addressSaved: {
+    address: '',
+    coords: {
+      latitude: 0,
+      longitude: 0,
+      latitudeDelta: 0,
+      longitudeDelta: 0,
+    },
+    aditionalInfo: '',
   },
 };
 
@@ -31,6 +43,10 @@ export const getDashboardData = createAsyncThunk(
   },
 );
 
+const saveAddressStorage = async (value: any) => {
+  await storeData('addressSaved', value);
+};
+
 export const globalSlice = createSlice({
   name: 'global',
   initialState,
@@ -38,6 +54,10 @@ export const globalSlice = createSlice({
     // Utilizado para el flujo de reiniciar animación del header
     setHomeFocused: (state, action) => {
       state.homeFocused = action.payload;
+    },
+    saveAddress: (state, action) => {
+      state.addressSaved = action.payload;
+      saveAddressStorage(action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -56,6 +76,6 @@ export const globalSlice = createSlice({
   },
 });
 
-export const { setHomeFocused } = globalSlice.actions;
+export const { setHomeFocused, saveAddress } = globalSlice.actions;
 
 export default globalSlice.reducer;

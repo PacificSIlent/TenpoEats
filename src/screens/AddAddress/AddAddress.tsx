@@ -1,9 +1,13 @@
+import { useNavigation } from '@react-navigation/native';
 import { colorGreenLight, colorWhite } from 'assets/colors';
 import { globalStyles } from 'assets/styles';
 import { KeyboardScroll } from 'components';
+import { AddressSaved } from 'models';
+import { RouteStackNavigation } from 'navigation';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import { saveAddress, useAppDispatch } from 'store';
 import { FormAddress, SearchAddress } from './components';
 
 const styles = StyleSheet.create({
@@ -23,7 +27,6 @@ const styles = StyleSheet.create({
     backgroundColor: colorWhite,
   },
   mapCnt: {
-    height: '40%',
     width: '100%',
   },
   map: {
@@ -38,6 +41,8 @@ const styles = StyleSheet.create({
 });
 
 const AddAddress = () => {
+  const navigation = useNavigation<RouteStackNavigation>();
+  const dispatch = useAppDispatch();
   const [addressSelected, setAddressSelected] = useState<{ details: any; data: any } | undefined>(
     undefined,
   );
@@ -93,7 +98,18 @@ const AddAddress = () => {
   };
 
   const onSubmit = (values: any) => {
-    console.log('SUBMIT EVENT', values);
+    const address: AddressSaved = {
+      address: addressSelected?.data.description,
+      coords: {
+        latitude: addressSelected?.details.geometry.location.lat,
+        longitude: addressSelected?.details.geometry.location.lng,
+        latitudeDelta: 0,
+        longitudeDelta: 0,
+      },
+      aditionalInfo: values.aditionalInfo,
+    };
+    dispatch(saveAddress(address));
+    navigation.goBack();
   };
 
   return (
@@ -111,7 +127,7 @@ const AddAddress = () => {
             display: mapVisible ? 'flex' : 'none',
           }}
         >
-          <View style={styles.mapCnt}>
+          <View style={[styles.mapCnt, { height: !!addressSelected ? '40%' : '100%' }]}>
             <MapView
               style={styles.map}
               provider={PROVIDER_GOOGLE}

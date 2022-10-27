@@ -36,11 +36,15 @@ const styles = StyleSheet.create({
     height: 260,
     zIndex: 0,
   },
-  address: {
+  addressCnt: {
     backgroundColor: colorGreenLight,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     paddingVertical: 22,
+  },
+  address: {
+    maxWidth: '80%',
+    marginLeft: 30,
   },
   homeCnt: {
     flex: 1,
@@ -130,8 +134,10 @@ const Home = () => {
             <Header />
           </View>
 
-          <View style={styles.address}>
-            <Address />
+          <View style={styles.addressCnt}>
+            <View style={styles.address}>
+              <Address />
+            </View>
           </View>
 
           <View style={styles.homeCnt}>

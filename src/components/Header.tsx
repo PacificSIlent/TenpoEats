@@ -4,7 +4,7 @@ import { Search } from 'assets/images';
 import { fontL, light } from 'assets/tokens';
 import { RouteParamList } from 'navigation';
 import React from 'react';
-import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Dimensions, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Address } from 'screens/HomeScreen/components';
 import BackButton from './BackButton';
 import Text from './Text';
@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
     width: Dimensions.get('window').width - 30,
   },
   titleCnt: { flex: 1, flexDirection: 'row', alignItems: 'center', marginLeft: 10 },
@@ -23,8 +22,12 @@ const styles = StyleSheet.create({
     color: colorGreen,
     marginLeft: 10,
   },
+  addressCnt: {
+    maxWidth: '70%',
+  },
   actions: {
     flexDirection: 'row',
+    marginLeft: 'auto',
   },
   actionsitem: {
     marginLeft: 24,
@@ -61,7 +64,9 @@ const Header = ({
         </View>
       ) : (
         <>
-          <Address />
+          <View style={[styles.addressCnt, { marginLeft: Platform.OS === 'android' ? 10 : 0 }]}>
+            <Address />
+          </View>
           <View style={styles.actions}>
             <TouchableOpacity onPress={goToSelectAddress}>
               <View style={styles.actionsitem}>

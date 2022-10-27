@@ -1,3 +1,4 @@
+export * from './addressSaved.model';
 export * from './category.model';
 export * from './dashboard.model';
 export * from './errorData.model';
