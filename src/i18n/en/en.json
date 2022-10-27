@@ -19,7 +19,8 @@
       "subtitle": "DELIVER APP"
     },
     "address": {
-      "title": "Add delivery address"
+      "title": "Add delivery address",
+      "addressSelectedText": "We send your orders to"
     },
     "restaurants": {
       "title": "RESTAURANTS",

@@ -7,18 +7,18 @@ import {
   colorWhite,
 } from 'assets/colors';
 import { globalStyles } from 'assets/styles';
-import { ScrollView } from 'components';
+import { LoadingAdvice, ScrollView } from 'components';
 import 'config/ignoreLogs';
 import { wait } from 'helpers';
+import { useIsLoading } from 'hooks';
 import { RouteStackNavigation } from 'navigation';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RefreshControl, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
-import { getDashboardData, RootState, useAppDispatch } from 'store';
-import LoadingAdvice from '../../components/LoadingAdvice';
-import { useIsLoading } from '../../hooks/useIsLoading';
+import { getData } from 'storage';
+import { getDashboardData, RootState, setAddress, useAppDispatch } from 'store';
 import { Address, Categories, Header, Restaurants } from './components';
 import Favorites from './components/Favorites';
 
@@ -112,8 +112,15 @@ const Home = () => {
     wait(1000).then(() => setRefreshing(false));
   }, []);
 
+  const getAddressSaved = async () => {
+    getData('addressSaved').then((value) => {
+      dispatch(setAddress(value));
+    });
+  };
+
   useEffect(() => {
     getDashboardDataHandler();
+    getAddressSaved();
   }, []);
 
   return (

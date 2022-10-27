@@ -43,7 +43,7 @@ const Address = () => {
     <TouchableOpacity style={[styles.address]} onPress={goToSelectAddress}>
       <PointerMap />
       <View style={styles.addressCnt}>
-        <Text style={styles.title}>Enviaremos tus pedidos a</Text>
+        <Text style={styles.title}>{t('home.address.addressSelectedText')}</Text>
         <Text style={styles.addressTitle} numberOfLines={1} ellipsizeMode="tail">
           {address.address}
         </Text>

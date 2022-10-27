@@ -8,7 +8,8 @@ import {
 import { book, fontL, fontM, fontS } from 'assets/tokens';
 import { Text } from 'components';
 import { GOOGLE_API_KEY } from 'config/env.json';
-import React, { useRef } from 'react';
+import { AddressSaved } from 'models';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -72,18 +73,27 @@ const googlePlacesStyle = {
 };
 
 const SearchAddress = ({
+  addressSaved,
   onPress,
   onFocus,
   onBlur,
   onChangeText,
 }: {
+  addressSaved?: AddressSaved;
   onPress: (data: any, details: any) => void;
   onFocus: () => void;
   onBlur: () => void;
   onChangeText: () => void;
 }) => {
-  const { t } = useTranslation();
   const ref: any = useRef();
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    if (!!addressSaved) {
+      ref.current.setAddressText(addressSaved.address);
+    }
+  }, [addressSaved]);
+
   return (
     <GooglePlacesAutocomplete
       ref={ref}
@@ -111,6 +121,10 @@ const SearchAddress = ({
       )}
     />
   );
+};
+
+SearchAddress.defaultProps = {
+  addressSaved: undefined,
 };
 
 export default SearchAddress;

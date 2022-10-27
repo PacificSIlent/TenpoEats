@@ -19,7 +19,8 @@
       "subtitle": "DELIVER APP"
     },
     "address": {
-      "title": "Agregar dirección de entrega"
+      "title": "Agregar dirección de entrega",
+      "addressSelectedText": "Enviaremos tus pedidos a"
     },
     "restaurants": {
       "title": "RESTAURANTES",

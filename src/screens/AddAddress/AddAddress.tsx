@@ -7,7 +7,8 @@ import { RouteStackNavigation } from 'navigation';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
-import { saveAddress, useAppDispatch } from 'store';
+import { useSelector } from 'react-redux';
+import { RootState, saveAddress, useAppDispatch } from 'store';
 import { FormAddress, SearchAddress } from './components';
 
 const styles = StyleSheet.create({
@@ -43,6 +44,9 @@ const styles = StyleSheet.create({
 const AddAddress = () => {
   const navigation = useNavigation<RouteStackNavigation>();
   const dispatch = useAppDispatch();
+
+  const addressSaved = useSelector((state: RootState) => state.global.addressSaved);
+
   const [addressSelected, setAddressSelected] = useState<{ details: any; data: any } | undefined>(
     undefined,
   );
@@ -56,27 +60,7 @@ const AddAddress = () => {
   const [markers, setMarkers] = useState<any[]>([]);
 
   const [mapVisible, setMapVisible] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (!!addressSelected) {
-      const cords = {
-        latitude: addressSelected.details.geometry.location.lat,
-        longitude: addressSelected?.details.geometry.location.lng,
-        latitudeDelta: 0,
-        longitudeDelta: 0,
-      };
-      setCoordsMap(cords);
-      setMarkers([
-        <Marker
-          key={addressSelected?.data.description}
-          coordinate={cords}
-          title={addressSelected?.data.description}
-          image={{ uri: 'mappin' }}
-        />,
-      ]);
-      setMapVisible(true);
-    }
-  }, [addressSelected]);
+  const [mapReady, setMapReady] = useState<boolean>(false);
 
   const onPress = (data: any, details: any = null) => {
     setAddressSelected({ details, data });
@@ -112,10 +96,47 @@ const AddAddress = () => {
     navigation.goBack();
   };
 
+  useEffect(() => {
+    if (!!addressSelected) {
+      const cords = {
+        latitude: addressSelected.details.geometry.location.lat,
+        longitude: addressSelected?.details.geometry.location.lng,
+        latitudeDelta: 0,
+        longitudeDelta: 0,
+      };
+      setCoordsMap(cords);
+      setMarkers([
+        <Marker
+          key={addressSelected?.data.description}
+          coordinate={cords}
+          title={addressSelected?.data.description}
+          image={{ uri: 'mappin' }}
+        />,
+      ]);
+      setMapVisible(true);
+    }
+  }, [addressSelected]);
+
+  useEffect(() => {
+    if (!!addressSaved && !addressSelected && mapReady) {
+      setCoordsMap(addressSaved.coords);
+      setMarkers([
+        <Marker
+          key={addressSaved.address}
+          coordinate={addressSaved.coords}
+          title={addressSaved.address}
+          image={{ uri: 'mappin' }}
+        />,
+      ]);
+      setMapVisible(true);
+    }
+  }, [addressSaved, mapReady]);
+
   return (
     <View style={[globalStyles.page, styles.page]}>
       <View style={styles.container}>
         <SearchAddress
+          addressSaved={addressSaved}
           onPress={onPress}
           onBlur={onBlur}
           onFocus={onFocus}
@@ -133,6 +154,7 @@ const AddAddress = () => {
               provider={PROVIDER_GOOGLE}
               region={coordsMap}
               maxZoomLevel={18}
+              onMapReady={() => setMapReady(true)}
             >
               {mapVisible ? markers.map((marker) => marker) : null}
             </MapView>

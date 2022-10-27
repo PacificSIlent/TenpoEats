@@ -55,6 +55,9 @@ export const globalSlice = createSlice({
     setHomeFocused: (state, action) => {
       state.homeFocused = action.payload;
     },
+    setAddress: (state, action) => {
+      state.addressSaved = action.payload;
+    },
     saveAddress: (state, action) => {
       state.addressSaved = action.payload;
       saveAddressStorage(action.payload);
@@ -76,6 +79,6 @@ export const globalSlice = createSlice({
   },
 });
 
-export const { setHomeFocused, saveAddress } = globalSlice.actions;
+export const { setHomeFocused, saveAddress, setAddress } = globalSlice.actions;
 
 export default globalSlice.reducer;
