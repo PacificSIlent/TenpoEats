@@ -82,8 +82,15 @@ const AddAddress = () => {
   };
 
   const onSubmit = (values: any) => {
+    let addressText = '';
+    if (!!addressSelected?.data.description) {
+      addressText = addressSelected?.data.description;
+    } else if (!!addressSelected?.data.formatted_address) {
+      addressText = addressSelected?.data.formatted_address;
+    }
+
     const address: AddressSaved = {
-      address: addressSelected?.data.description,
+      address: addressText,
       coords: {
         latitude: addressSelected?.details.geometry.location.lat,
         longitude: addressSelected?.details.geometry.location.lng,
@@ -107,7 +114,7 @@ const AddAddress = () => {
       setCoordsMap(cords);
       setMarkers([
         <Marker
-          key={addressSelected?.data.description}
+          key={`${addressSelected?.data.description}_key`}
           coordinate={cords}
           title={addressSelected?.data.description}
           image={{ uri: 'mappin' }}
@@ -122,7 +129,7 @@ const AddAddress = () => {
       setCoordsMap(addressSaved.coords);
       setMarkers([
         <Marker
-          key={addressSaved.address}
+          key={`${addressSaved.address}_key`}
           coordinate={addressSaved.coords}
           title={addressSaved.address}
           image={{ uri: 'mappin' }}

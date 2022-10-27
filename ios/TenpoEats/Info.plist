@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Se utiliza la ubicación del dispositivo para ubicar posición en mapa</string>
+	<string>Se utiliza la ubicación del dispositivo para ubicar posición del usuario en el mapa</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Se utiliza la ubicación del dispositivo para ubicar posición del usuario en el mapa</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -37,8 +39,6 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Gotham Bold.ttf</string>

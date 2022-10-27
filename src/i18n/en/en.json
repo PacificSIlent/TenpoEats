@@ -39,7 +39,8 @@
     "placeholder": "Write your address",
     "formTitle": "Add delivery information",
     "formSubtitle": "Apartment, Office, Floor, Block, etc.",
-    "button": "ADD ADDRESS"
+    "button": "ADD ADDRESS",
+    "currentLocationLabel": "Current location"
   },
   "error": {
     "title": "We're sorry",
