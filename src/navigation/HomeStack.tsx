@@ -51,7 +51,7 @@ const HomeStack = () => {
             // Utilizado para el flujo de reiniciar animación del header
             setTimeout(() => {
               dispatch(setHomeFocused(false));
-            }, 300);
+            }, 400);
           },
           focus: () => {
             // Utilizado para el flujo de reiniciar animación del header

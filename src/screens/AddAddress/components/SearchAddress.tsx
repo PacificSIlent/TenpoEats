@@ -2,16 +2,18 @@ import {
   colorBlack,
   colorGrayLight,
   colorGrayStrong,
+  colorGreen,
   colorShadow,
   colorWhite,
 } from 'assets/colors';
+import { Geolocation } from 'assets/icons';
 import { book, fontL, fontM, fontS } from 'assets/tokens';
 import { Text } from 'components';
 import { GOOGLE_API_KEY } from 'config/env.json';
 import { AddressSaved } from 'models';
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 const styles = StyleSheet.create({
@@ -32,6 +34,20 @@ const styles = StyleSheet.create({
     color: colorGrayStrong,
     fontWeight: book,
     maxWidth: '90%',
+  },
+  addressGps: {
+    paddingVertical: 10,
+  },
+  locationButton: {
+    width: 35,
+    height: 35,
+    alignSelf: 'center',
+    backgroundColor: colorGreen,
+    opacity: 0.8,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
   },
 });
 
@@ -88,9 +104,18 @@ const SearchAddress = ({
   const ref: any = useRef();
   const { t } = useTranslation();
 
+  const onLocationPress = () => {
+    ref.current.getCurrentLocation();
+    ref.current.clear();
+    ref.current.focus();
+  };
+
   useEffect(() => {
     if (!!addressSaved) {
       ref.current.setAddressText(addressSaved.address);
+    } else {
+      ref.current.getCurrentLocation();
+      ref.current.focus();
     }
   }, [addressSaved]);
 
@@ -113,12 +138,35 @@ const SearchAddress = ({
       }}
       placeholder={t('addAddress.placeholder')}
       styles={googlePlacesStyle}
-      renderRow={(data, index) => (
+      renderRightButton={() => (
+        <TouchableOpacity onPress={onLocationPress} style={styles.locationButton}>
+          <Geolocation />
+        </TouchableOpacity>
+      )}
+      renderRow={(data: any, index) => (
         <View style={styles.addressCnt} key={index}>
-          <Text style={styles.address}>{data.structured_formatting.main_text}</Text>
-          <Text style={styles.addressSecondary}>{data.structured_formatting.secondary_text}</Text>
+          {!!data?.structured_formatting?.main_text &&
+          !!data?.structured_formatting?.secondary_text ? (
+            <>
+              <Text style={styles.address}>{data?.structured_formatting?.main_text || ''}</Text>
+              <Text style={styles.addressSecondary}>
+                {data?.structured_formatting?.secondary_text || ''}
+              </Text>
+            </>
+          ) : (
+            <>
+              <Text ellipsizeMode="tail" numberOfLines={1} style={styles.addressGps}>
+                {data?.formatted_address || ''}
+              </Text>
+            </>
+          )}
         </View>
       )}
+      isRowScrollable={false}
+      currentLocation
+      currentLocationLabel={t('addAddress.currentLocationLabel')}
+      filterReverseGeocodingByTypes={['geocode', 'street_address', 'street_number']}
+      nearbyPlacesAPI="GoogleReverseGeocoding"
     />
   );
 };

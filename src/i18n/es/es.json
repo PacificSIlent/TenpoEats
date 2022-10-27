@@ -39,7 +39,8 @@
     "placeholder": "Escribe tu dirección",
     "formTitle": "Agregar información de entrega",
     "formSubtitle": "Depto, Oficina, Piso, Block, etc.",
-    "button": "AGREGAR DIRECCIÓN"
+    "button": "AGREGAR DIRECCIÓN",
+    "currentLocationLabel": "Ubicación actual"
   },
   "error": {
     "title": "Lo sentimos",
