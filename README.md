@@ -10,6 +10,8 @@ Este proyecto consiste en un DEMO inspirado por aplicaciones de delivery de comi
 
 Puedes acceder al siguiente [enlace](https://drive.google.com/drive/folders/1_ff2YciQOSvq4rQ1_FCYTYbVOq_tahJ6?usp=sharing) Drive para previsualizar la aplicación en video, tanto para Android como en iOS.
 
+También puedes descargar el apk directamente a través de este [enlace](https://drive.google.com/drive/folders/1The2RXX-FJtJULMXC1KDyrRk7Ta_xnkq?usp=sharing)
+
 ## Funcionalidades/Características que incluye el DEMO
 
 ### Funcionalidades 🔧
