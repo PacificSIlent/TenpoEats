@@ -110,7 +110,7 @@ En él podrás inspeccionar los cambios de estado en redux, llamadas de servicio
 
 ## Estructura de proyecto 📋
 
-La estructura del proyecto base se define de la siguiente forma
+La estructura del proyecto se define de la siguiente forma
 
 - ios: Proyecto nativo iOS generado por React Native
 - android: Proyecto nativo Android generado por React Native
