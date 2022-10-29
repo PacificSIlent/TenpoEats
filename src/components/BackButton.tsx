@@ -2,23 +2,20 @@ import { HeaderBackButton } from '@react-navigation/elements';
 import { colorGreen } from 'assets/colors';
 import { fontM } from 'assets/tokens';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import styled from 'styled-components';
 
-const styles = StyleSheet.create({
-  backButton: {
-    marginHorizontal: 0,
-    marginRight: 0,
-    justifyContent: 'flex-start',
-  },
-});
+const CustomBackButton = styled(HeaderBackButton)`
+  margin-left: 0;
+  margin-right: 0;
+  justify-content: flex-start;
+`;
 
 const BackButton = ({ navigationFunction }: { navigationFunction: () => void }) => {
   return (
-    <HeaderBackButton
+    <CustomBackButton
       labelVisible={false}
       labelStyle={{ fontSize: fontM }}
       pressColor={colorGreen}
-      style={styles.backButton}
       tintColor={colorGreen}
       onPress={() => {
         navigationFunction();

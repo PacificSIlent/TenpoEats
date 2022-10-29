@@ -70,8 +70,10 @@ En la raiz del proyecto ejecutar las siguientes lineas de comando:
 1. Instalación de paquetes
 
    ```bash
-   npm install
+   npm install --force
    ```
+
+> NOTA: Debe ejecutarse junto al `--force` debido a que la librería styled-components no es compatible con la ultima versión de react.
 
 2. iOS: Instalación de pods (sólo si estás en Mac y ejecutarás la app para iOS)
 

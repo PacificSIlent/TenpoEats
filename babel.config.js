@@ -13,6 +13,7 @@ module.exports = {
       },
     ],
     'react-native-reanimated/plugin',
+    'babel-plugin-styled-components',
   ],
   env: {
     production: {
