@@ -59,8 +59,9 @@ Una vez clonado el proyecto se deben seguir las instrucciones referenciadas a co
 
 ### Pre-requisitos 📋
 
-1. Seguir estrictamente las instrucciones detalladas en el sitio oficial de [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) según el sistema operativo que estés utilizando y qué dispositivo usarás para fines de ejecutar la aplicación.
-   Aquí encontrarás información de qué elementos debes instalar en tu S.O para tener el ambiente listo para React Native.
+1. Seguir estrictamente las instrucciones detalladas en el sitio oficial de [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) según el sistema operativo que estés utilizando y qué dispositivo usarás para fines de ejecutar la aplicación.vAquí encontrarás información de qué elementos debes instalar en tu S.O para tener el ambiente listo para React Native.
+
+> NOTA: Este proyecto fue realizado mediante `React Native CLI`.
 
 ### Instalación / Modo de uso 🔧
 
